@@ -9,6 +9,9 @@ parameters:
   python-version:
     type: string
     default: '3.8'
+  is_foo:
+    type: boolean
+    default: false
     
 jobs:
   init:
