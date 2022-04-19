@@ -1,0 +1,27 @@
+version: 2.1
+
+parameters:
+  python-version:
+    type: string
+    default: '3.8'
+  parallelism:
+    type: integer
+    default: 1
+
+jobs:
+  checkout-parallelism:
+    resource_class: small
+    parallelism: << pipeline.parameters.parallelism >>
+    docker:
+      - image: cimg/python:<< pipeline.parameters.python-version >>
+    steps:
+      - run:
+          name: diagnose
+          command: |
+            echo "this is Node #${CIRCLE_NODE_INDEX} out of ${CIRCLE_NODE_TOTAL} nodes."
+            echo "by the way, a continued workflow has its pipeline.trigger_source recorded as << pipeline.trigger_source >>"
+
+workflows:
+  continued:
+    jobs:
+      - checkout-parallelism
