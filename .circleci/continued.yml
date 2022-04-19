@@ -4,14 +4,14 @@ parameters:
   python-version:
     type: string
     default: '3.8'
-  parallelism:
-    type: integer
-    default: 1
+#   parallelism:
+#     type: integer
+#     default: 1
 
 jobs:
   checkout-parallelism:
     resource_class: small
-    parallelism: << pipeline.parameters.parallelism >>
+    parallelism: 1
     docker:
       - image: cimg/python:<< pipeline.parameters.python-version >>
     steps:
