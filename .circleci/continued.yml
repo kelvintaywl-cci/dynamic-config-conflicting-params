@@ -4,9 +4,9 @@ parameters:
   python-version:
     type: string
     default: '3.8'
-#   parallelism:
-#     type: integer
-#     default: 1
+  is_foo:
+    type: boolean
+    default: true
 
 jobs:
   checkout-parallelism:
