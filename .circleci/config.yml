@@ -12,6 +12,7 @@ parameters:
     
 jobs:
   init:
+    resource_class: small
     docker:
       - image: cimg/python:<< pipeline.parameters.python-version >>
     steps:
