@@ -12,7 +12,10 @@ parameters:
   is_foo:
     type: boolean
     default: false
-    
+  workflow:
+    type: string
+    default: ""
+
 jobs:
   init:
     resource_class: small
