@@ -23,7 +23,7 @@ jobs:
       - run:
           name: set up parameters
           command: |
-            jq --null-input --arg version '3.8' '{"python-version": $version}' > params.json
+            jq --null-input '{}' > params.json
       - continuation/continue:
           configuration_path: .circleci/continued.yml
           parameters: params.json
